@@ -20,17 +20,32 @@ program
     .usage('[options] <command> [params]')
 
 // Options
-program
-    .option('-g, --gen', 'Generate a development library using a code template')
-    .option('-d, --dev', "Runs the interface using 'development-only' subroutines")
+program.option('-d, --dev', 'runs the command line using development subroutines [requires authentication]')
+    // .option('-s, --sup', 'runs the command line using administrative subroutines [requires authentication]')
 
 // Commands
 program
-    .command('log')
-    .alias('l')
-    .description('Dev console command')
+    // Code generator
+    .command('generate')
+    .description('generates a new development library using a code template')
     .action(() => {
-        console.log('I worked!')
+        console.log('It worked, the generator subroutine was called successfully!')
+    })
+
+program
+    // Code generator
+    .command('publish')
+    .description('converts a generated library to production ready code')
+    .action(() => {
+        console.log('It worked, the publishing subroutine was called successfully!')
+    })
+
+program
+    // Code generator
+    .command('commit')
+    .description('commits a newly created development library to github')
+    .action(() => {
+        console.log('It worked, the code commit subroutine was called successfully!')
     })
 
 // Parse
