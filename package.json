@@ -1,0 +1,30 @@
+{
+  "name": "@laundry/cli",
+  "version": "0.0.1",
+  "author": "Jason Napolitano, Sean Corpuz",
+  "license": "BSD-3-Clause",
+  "description": "The command line utility for chinese laundry. Built using Node, Commander and Javascript",
+  "main": "src/cli.js",
+  "bin": {
+    "laundry-cli": "./src/cli.js"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "chinese-laundry",
+    "cl-cli",
+    "clcli",
+    "cli"
+  ],
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^7.1.0",
+    "figlet": "^1.5.0",
+    "ora": "^5.3.0"
+  }
+}
