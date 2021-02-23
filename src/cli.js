@@ -1,16 +1,28 @@
 // Dependencies
 const { Command } = require('commander')
+const figlet = require('figlet')
+const chalk = require('chalk')
+
+console.log(
+    chalk.yellow(
+        figlet.textSync('Chinese Laundry', { horizontalLayout: 'full' })
+    )
+);
+  
+// Create a new CLI program
 const program = new Command()
 
 // Program information
 program
     .description('Command line interface for chinese laundry')
     .version('1.0.0')
+    .name('laundry-cli')
+    .usage('[options] <command> [params]')
 
 // Options
 program
-    .option('-d, --dev', 'Development console enabled')
-    .option('-p, --prod', 'Production console enabled')
+    .option('-g, --gen', 'Generate a development library using a code template')
+    .option('-d, --dev', "Runs the interface using 'development-only' subroutines")
 
 // Commands
 program
