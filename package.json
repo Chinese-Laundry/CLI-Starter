@@ -9,7 +9,10 @@
     "laundry-cli": "./src/cli.js"
   },
   "scripts": {
-    "test": "jest"
+    "test:coverage": "jest --coverage",
+    "test:live": "jest --watchAll",
+    "dev:live": "nodemon ./src/cli.js",
+    "dev": "node ./src/cli.js"
   },
   "keywords": [
     "chinese-laundry",

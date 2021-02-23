@@ -1,27 +1,29 @@
 // Dependencies
+const { controller } = require('./utils/loader')
+const config = require('./configuration/cli')
 const { Command } = require('commander')
 const figlet = require('figlet')
 const chalk = require('chalk')
 
+// Entry point graphics
 console.log(
     chalk.yellow(
-        figlet.textSync('Chinese Laundry', { horizontalLayout: 'full' })
+        figlet.textSync(config.company, { horizontalLayout: config.layout.main.horizontal })
     )
 );
-  
+
 // Create a new CLI program
 const program = new Command()
 
 // Program information
 program
-    .description('Command line interface for chinese laundry')
-    .version('1.0.0')
-    .name('laundry-cli')
-    .usage('[options] <command> [params]')
+    .description(config.describe)
+    .version(config.version)
+    .name(config.name)
+    .usage(config.options)
 
 // Options
 program.option('-d, --dev', 'runs the command line using development subroutines [requires authentication]')
-    // .option('-s, --sup', 'runs the command line using administrative subroutines [requires authentication]')
 
 // Commands
 program
@@ -29,7 +31,7 @@ program
     .command('generate')
     .description('generates a new development library using a code template')
     .action(() => {
-        console.log('It worked, the generator subroutine was called successfully!')
+        controller('generate')
     })
 
 program
@@ -37,7 +39,7 @@ program
     .command('publish')
     .description('converts a generated library to production ready code')
     .action(() => {
-        console.log('It worked, the publishing subroutine was called successfully!')
+        controller('publish')
     })
 
 program
@@ -45,7 +47,7 @@ program
     .command('commit')
     .description('commits a newly created development library to github')
     .action(() => {
-        console.log('It worked, the code commit subroutine was called successfully!')
+        controller('commit')
     })
 
 // Parse
