@@ -6,52 +6,29 @@ module.exports = {
   execute() {
     // ------------------------------------------------------------------------
     // PUT OPTIONS HERE ...
-    program.option('-d, --dev', 'runs the command line using development subroutines [requires authentication]')
+    program.option(
+      '-d, --dev',
+      'runs the command line using development subroutines [requires authentication]'
+    )
 
     // ------------------------------------------------------------------------
     // PUT COMMANDS HERE ...
 
-    // Code generator
+    // Customer list
     program
-      .command('generate')
-      .description('generates a new development library using a code template')
+      .command('customer')
+      .alias('c')
+      .description('generates a new customer report')
       .action(() => {
-        controller('generate')
-          .then(() => {
-            console.log('Hey, this portion of the promise chain works!')
-          })
-          .then(() => {
-            console.log('This portion of the promise chain works too!')
-          })
-      })
-
-    // ------------------------------------------------------------------------
-    // Code committer
-    program
-      .command('commit')
-      .description('Commits code to a github repository')
-      .action(() => {
-        controller('commit')
-          .then(() => {
-            console.log('Hey, this portion of the promise chain works!')
-          })
-          .then(() => {
-            console.log('This portion of the promise chain works too!')
-          })
-      })
-
-    // ------------------------------------------------------------------------
-    // Code publisher
-    program
-      .command('publish')
-      .description('Pulls a github repository and advances it to production')
-      .action(() => {
-        controller('publish')
+        controller('customers')
+          // Let's pass data from the controller to the promise chain!
           .then((response) => {
             console.log(response)
           })
           .then(() => {
-            console.log('This portion of the promise chain works too!')
+            console.log(
+              'This portion of the promise chain works too, by the way!'
+            )
           })
           .catch((error) => console.error(error))
       })
