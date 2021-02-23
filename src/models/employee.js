@@ -1,6 +1,6 @@
 module.exports = {
-    firstname: String,
-    lastname: String,
-    employeeId: Number,
-    roles: [ 'developer', 'employee' ]
+  firstname: String,
+  lastname: String,
+  employeeId: Number,
+  roles: ['developer', 'employee'],
 }

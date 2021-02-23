@@ -1,20 +1,19 @@
 // Dependencies
 const path = require('path')
 
-// TODO - Make controller and model functions return a promise once the file is require()'ed
-// TODO - Fixe the command loader function so it loads and executes commands using an array
-
 /**
  * Loads a controller from src/controllers
  *
  * @param {string} filename
  *
- * @return {*}
+ * @return {Promise}
  */
 const controller = (filename) => {
-    const directory = path.resolve('src/controllers')
+  const directory = path.resolve('src/controllers')
+  return new Promise((resolve) => {
     const controller = require(`${directory}/${filename}`)
-    return controller.run()
+    resolve(controller.run())
+  })
 }
 
 /**
@@ -25,23 +24,21 @@ const controller = (filename) => {
  * @return {*}
  */
 const model = (filename) => {
-    const directory = path.resolve('src/models')
-    return require(`${directory}/${filename}`)
+  const directory = path.resolve('src/models')
+  return require(`${directory}/${filename}`)
 }
 
 /**
  * Executes a command from src/commands
  *
- * @param {Array} filenames
+ * @param {string} masterFile
  *
- * @return {any}
+ * @return {*}
  */
-const commands = (filenames) => {
-    const directory = path.resolve('src/commands')
-    filenames.forEach(filename => {
-        const command = require(`${directory}/${filename}`)
-        return command.execute()
-    })
+const commands = (masterFile = 'commands') => {
+  const directory = path.resolve('src/configuration/')
+  const command = require(`${directory}/${masterFile}`)
+  return command.execute()
 }
 
 // Export modules
