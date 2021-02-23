@@ -4,15 +4,15 @@ const program = require('commander')
 
 module.exports = {
   execute() {
-    // Options
-    program.option(
-      '-d, --dev',
-      'runs the command line using development subroutines [requires authentication]'
-    )
+    // ------------------------------------------------------------------------
+    // PUT OPTIONS HERE ...
+    program.option('-d, --dev', 'runs the command line using development subroutines [requires authentication]')
 
-    // Commands
+    // ------------------------------------------------------------------------
+    // PUT COMMANDS HERE ...
+
+    // Code generator
     program
-      // Code generator
       .command('generate')
       .description('generates a new development library using a code template')
       .action(() => {
@@ -21,11 +21,43 @@ module.exports = {
             console.log('Hey, this portion of the promise chain works!')
           })
           .then(() => {
-            console.log('This promise chain works too!')
+            console.log('This portion of the promise chain works too!')
           })
       })
 
-    // Parse
+    // ------------------------------------------------------------------------
+    // Code committer
+    program
+      .command('commit')
+      .description('Commits code to a github repository')
+      .action(() => {
+        controller('commit')
+          .then(() => {
+            console.log('Hey, this portion of the promise chain works!')
+          })
+          .then(() => {
+            console.log('This portion of the promise chain works too!')
+          })
+      })
+
+    // ------------------------------------------------------------------------
+    // Code publisher
+    program
+      .command('publish')
+      .description('Pulls a github repository and advances it to production')
+      .action(() => {
+        controller('publish')
+          .then((response) => {
+            console.log(response)
+          })
+          .then(() => {
+            console.log('This portion of the promise chain works too!')
+          })
+          .catch((error) => console.error(error))
+      })
+
+    // -------------------------------------------------------------
+    // DO NOT ADD COMMANDS OR OPTIONS BELOW THIS STATEMENT
     program.parse()
   },
 }

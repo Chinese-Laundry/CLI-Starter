@@ -1,5 +1,5 @@
 module.exports = {
   run() {
-    console.log('It worked, the publishing controller was called successfully!')
+    return ['jason', 'sean', 'cassandra', 'alex', 'steven', 'bob', 'sally', 'virginia']
   },
 }
