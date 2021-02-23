@@ -11,7 +11,7 @@
 // src/controllers/customers
 module.exports = {
     run() {
-        // The code up here is totally doing things. A lot unknown things ...
+        // The code up here is totally doing things. A lot of unknown things ...
         // ... doing things that'll return the following array, for example
         return [
             'jason',
