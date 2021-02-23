@@ -1,8 +1,7 @@
-# @laundry-cli
 > The official command line utility for chinese laundry. It implements a small scale, MVC-ish structure, or at least
 > encourages members of the development team to utilize the MVC API that's available.
 
-![Screenshot](screenshot.png)
+![Screenshot](docs/screenshot.png)
 
 ## How to use
 1. Create a controller. It **_must_** reside in the `src/controllers` directory,
@@ -55,7 +54,7 @@ $ laundry-cli [options] customer
 ```
 
 4. Results
-![Screenshot2](screenshot-2.png)
+   ![Screenshot2](docs/screenshot-2.png)
 
 ## License
 ### BSD 3-Clause License

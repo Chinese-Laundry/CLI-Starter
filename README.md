@@ -1,4 +1,3 @@
-# @laundry-cli
 > The official command line utility for chinese laundry. It implements a small scale, MVC-ish structure, or at least
 > encourages members of the development team to utilize the MVC API that's available.
 
