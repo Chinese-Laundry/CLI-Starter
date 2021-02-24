@@ -4,51 +4,53 @@
 ![Screenshot](docs/screenshot.png)
 
 ## How to use
+
 1. Create a controller. It **_must_** reside in the `src/controllers` directory,
    and it **_must_** contain a `run()` method. The `run()` method will be executed
    automatically when using the `controller()` helper function, as seen in step 2.
+
 ```js
 // src/controllers/customers
 module.exports = {
-    run() {
-        // The code up here is totally doing things. A lot of unknown things ...
-        // ... doing things that'll return the following array, for example
-        return [
-            'jason',
-            'sean',
-            'cassandra',
-            'alex',
-            'steven',
-            'bob',
-            'sally',
-            'virginia',
-        ]
-    }
+  run() {
+    // The code up here is totally doing things. A lot of unknown things ...
+    // ... doing things that'll return the following array, for example
+    return [
+      'jason',
+      'sean',
+      'cassandra',
+      'alex',
+      'steven',
+      'bob',
+      'sally',
+      'virginia',
+    ]
+  },
 }
 ```
 
 2. create a new command inside `src/configuration/commands`, like so:
+
 ```js
 program
-    .command('customer')
-    .alias('c')
-    .description('generates a new customer report')
-    .action(() => {
-        controller('customers')
-            // Let's pass data from the controller to the promise chain!
-            .then((response) => {
-                console.log(response)
-            })
-            .then(() => {
-                console.log(
-                    'This portion of the promise chain works too, by the way!'
-                )
-            })
-            .catch((error) => console.error(error))
-    })
+  .command('customer')
+  .alias('c')
+  .description('generates a new customer report')
+  .action(() => {
+    controller('customers')
+      // Let's pass data from the controller to the promise chain!
+      .then((response) => {
+        console.log(response)
+      })
+      .then(() => {
+        console.log('This portion of the promise chain works too, by the way!')
+      })
+      .catch((error) => console.error(error))
+  })
 ```
 
 3. Call your command
+
 ```bash
 $ laundry-cli [options] customer
 ```
@@ -57,6 +59,7 @@ $ laundry-cli [options] customer
    ![Screenshot2](docs/screenshot-2.png)
 
 ## License
+
 ### BSD 3-Clause License
 
 Copyright (c) 2021, Jason Napolitano
