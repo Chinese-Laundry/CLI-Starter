@@ -68,9 +68,11 @@ program
   })
 ```
 
-3. Call your command
+3. Use `npm link` and then call your command
 
 ```bash
+$ cd project_dir
+$ sudo npm link
 $ bamboozle-cli [options] customer
 ```
 
