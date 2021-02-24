@@ -1,4 +1,4 @@
-> The official command line utility for chinese laundry. It implements a small scale, MVC-ish structure, or at least
+> A small, practical CLI utility that implements a small scale, MVC-ish structure, or at least
 > encourages members of the development team to utilize the MVC API that's available.
 
 ![Screenshot](docs/screenshot.png)
@@ -10,42 +10,42 @@
 ```js
 // src/controllers/customers
 module.exports = {
-    run() {
-        // The code up here is totally doing things. A lot of unknown things ...
-        // ... doing things that'll return the following array, for example
-        return [
-            'jason',
-            'sean',
-            'cassandra',
-            'alex',
-            'steven',
-            'bob',
-            'sally',
-            'virginia',
-        ]
-    }
+   run() {
+      // The code up here is totally doing things. A lot of unknown things ...
+      // ... doing things that'll return the following array, for example
+      return [
+         'jason',
+         'sean',
+         'cassandra',
+         'alex',
+         'steven',
+         'bob',
+         'sally',
+         'virginia',
+      ]
+   }
 }
 ```
 
 2. create a new command inside `src/configuration/commands`, like so:
 ```js
 program
-    .command('customer')
-    .alias('c')
-    .description('generates a new customer report')
-    .action(() => {
-        controller('customers')
-            // Let's pass data from the controller to the promise chain!
-            .then((response) => {
-                console.log(response)
-            })
-            .then(() => {
-                console.log(
-                    'This portion of the promise chain works too, by the way!'
-                )
-            })
-            .catch((error) => console.error(error))
-    })
+        .command('customer')
+        .alias('c')
+        .description('generates a new customer report')
+        .action(() => {
+           controller('customers')
+                   // Let's pass data from the controller to the promise chain!
+                   .then((response) => {
+                      console.log(response)
+                   })
+                   .then(() => {
+                      console.log(
+                              'This portion of the promise chain works too, by the way!'
+                      )
+                   })
+                   .catch((error) => console.error(error))
+        })
 ```
 
 3. Call your command
