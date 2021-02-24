@@ -1,12 +1,12 @@
 {
-  "name": "@laundry/cli",
+  "name": "@bamboozle/cli",
   "version": "0.0.1",
   "author": "Jason Napolitano, Sean Corpuz",
   "license": "BSD-3-Clause",
   "description": "The command line utility for chinese laundry. Built using Node, Commander and Javascript",
   "main": "src/cli.js",
   "bin": {
-    "laundry-cli": "./src/cli.js"
+    "bamboozle-cli": "./src/cli.js"
   },
   "scripts": {
     "test:coverage": "jest --coverage",
@@ -15,9 +15,8 @@
     "dev": "node ./src/cli.js"
   },
   "keywords": [
-    "chinese-laundry",
-    "cl-cli",
-    "clcli",
+    "bamboozle-cli",
+    "bamboozle",
     "cli"
   ],
   "devDependencies": {
