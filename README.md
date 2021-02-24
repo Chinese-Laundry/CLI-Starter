@@ -5,6 +5,25 @@
 
 ## How to use
 
+### Obtaining the repo
+
+1. clone repository into your development environment
+
+```bash
+$ git clone https://github.com/jason-napolitano/cli.git project_dir
+```
+
+2. Change directories and install dependencies
+
+```bash
+$ cd project_dir
+$ npm i
+```
+
+3. Start developing!
+
+### Development
+
 1. Create a controller. It **_must_** reside in the `src/controllers` directory,
    and it **_must_** contain a `run()` method. The `run()` method will be executed
    automatically when using the `controller()` helper function, as seen in step 2.
@@ -52,7 +71,7 @@ program
 3. Call your command
 
 ```bash
-$ laundry-cli [options] customer
+$ bamboozle-cli [options] customer
 ```
 
 4. Results
